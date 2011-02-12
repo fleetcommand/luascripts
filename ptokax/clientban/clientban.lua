@@ -6,12 +6,16 @@ tCB = {}
 
 if loadfile(Core.GetPtokaXPath().."scripts/cb.txt") then dofile(Core.GetPtokaXPath().."scripts/cb.txt") end
 
+local escapeString = function(text)
+	return string.gsub(text, "\"", "\\\"")
+end
+
 local Save = function()
-	local f = io.open(Core.GetPtokaXPath().."scripts/cb.txt","w+")
+	local f = io.open(Core.GetPtokaXPath() .. "scripts/cb.txt", "w+")
 	if f then
 		f:write("tCB = {\n")
-		for i,v in ipairs(tCB) do
-			f:write('{"'..v[1]..'",'..v[2]..','..v[3]..',"'..v[4]..'"},\n')
+		for i, v in ipairs(tCB) do
+			f:write('{"' .. escapeString(v[1]) .. '",' .. v[2] .. ',' .. v[3] .. ',"' .. escapeString(v[4]) .. '"},\n')
 		end
 		f:write("}")
 		f:close()
