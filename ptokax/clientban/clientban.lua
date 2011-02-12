@@ -24,7 +24,7 @@ end
 
 local function clientban(params)
 	if (not params[1]) then
-		return "Missing or unknown parameters. See !cb help";
+		return "Missing parameters. See !cb help";
 	elseif (params[1] == "help") then
 		return "Usage:\r\n"..
 		"!cb add <client> <min_version> <max_version> <message> - Bans a client with the given version.\r\n"..
@@ -60,13 +60,17 @@ local function clientban(params)
 			list = list .. i .. "\t" .. t[1] .. "\t" .. NumUtil:toString(t[2]) .. "\t\t" .. NumUtil:toString(t[3]) .. "\t\t" .. t[4] .. "\r\n"
 		end
 		return list;
+	else
+		return "Unknown parameter \"" .. params[1] .. "\". See !cb help";
 	end
 end
 
 function ChatArrival(user, fulltext)
 	if tostring(user.iProfile):match("["..class.."]") and (fulltext:match("^%b<>%s*[%+!]clientban.+$") or fulltext:match("^%b<>%s*[%+!]cb.+$"))then
 		local t = {}
-		fulltext:match("[%+!]%S+%s(.+)|$"):gsub("(%S+)",function(m) table.insert(t,m) end)
+		if fulltext:match("[%+!]%S+%s(.+)|$") then
+			fulltext:match("[%+!]%S+%s(.+)|$"):gsub("(%S+)",function(m) table.insert(t, m) end)
+		end
 		msg = clientban(t)
 		if msg then Core.SendToUser(user,"<"..SetMan.GetString(21).."> "..msg) end
 		return true
