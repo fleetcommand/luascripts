@@ -4,7 +4,7 @@ dofile(Core.GetPtokaXPath() .. "scripts/numutil.inc")
 local class = "0"
 tCB = {}
 
-if loadfile(Core.GetPtokaXPath().."scripts/cb.txt") then dofile(Core.GetPtokaXPath().."scripts/cb.txt") end
+if loadfile(Core.GetPtokaXPath() .. "scripts/cb.txt") then dofile(Core.GetPtokaXPath() .. "scripts/cb.txt") end
 
 local escapeString = function(text)
 	return string.gsub(text, "\"", "\\\"")
@@ -15,7 +15,7 @@ local Save = function()
 	if f then
 		f:write("tCB = {\n")
 		for i, v in ipairs(tCB) do
-			f:write('{"' .. escapeString(v[1]) .. '",' .. NumUtil:toString(v[2]) .. ',' .. NumUtil:toString(v[3]) .. ',"' .. escapeString(v[4]) .. '"},\n')
+			f:write('{"' .. escapeString(v[1]) .. '", ' .. NumUtil:toString(v[2]) .. ', ' .. NumUtil:toString(v[3]) .. ', "' .. escapeString(v[4]) .. '"},\n')
 		end
 		f:write("}")
 		f:close()
@@ -55,8 +55,9 @@ local function clientban(params)
 		end
 	elseif (params[1] == "list") then
 		local list = "Currently banned clients:\r\nIndex\tclient\tmin_version\tmax_version\tmessage\r\n";
-		for i,t in ipairs(tCB) do
-			list = list..i.."\t"..t[1].."\t"..t[2].."\t\t"..t[3].."\t\t"..t[4].."\r\n"
+		--// To avoid end-user confusion, we use dot as a decimal separator  in !bc list
+		for i, t in ipairs(tCB) do
+			list = list .. i .. "\t" .. t[1] .. "\t" .. NumUtil:toString(t[2]) .. "\t\t" .. NumUtil:toString(t[3]) .. "\t\t" .. t[4] .. "\r\n"
 		end
 		return list;
 	end
@@ -74,47 +75,45 @@ function ChatArrival(user, fulltext)
 end
 
 function UserConnected(user)
+	local disconnect = false
+	local message = ""
 	local cl, ve = Core.GetUserValue(user, 6), NumUtil:toNumber(Core.GetUserValue(user, 7))
 	if cl == "DC++" then cl = "++" end
 	if cl == "Valknut" then cl = "DCGUI" end
 	if cl == "NMDC2" then cl = "DC" end
-	for i,t in ipairs(tCB) do
+	for i, t in ipairs(tCB) do
 		if cl == "UNKNOWN TAG" then
-			Core.SendToOpChat("Unable to check "..user.sNick.."'s client. (It might be VERY crazy! Check manually.)")
+			Core.SendToOpChat("Unable to check " .. user.sNick .. "'s client. (It might be VERY crazy! Check manually.)")
 			return true
 		end
 		if (cl == t[1]) then
 			if (t[2] == 0 and t[3] == 0) then -- time to say goodbye
-				Core.SendToUser(user,"<"..SetMan.GetString(21).."> "..t[4])
-				Core.Disconnect(user)
+				disconnect = true
+				message = t[4]
+				break
 			end
 			if ve then
-				if t[2] == 0 then -- min ver is 0, check whether user's version is less than max_version
-					if ve < t[3] then
-						Core.SendToUser(user,"<"..SetMan.GetString(21).."> "..t[4])
-						Core.Disconnect(user)
-						return true
+				if t[3] == 0 then -- max ver is 0, check whether user's version is higher than min_version
+					if ve >= t[3] then
+						disconnect = true
+						message = t[4]
+						break
 					end
-				elseif t[3] == 0 then -- max ver is 0, check whether user's version is higher than min_version
-					if ve > t[3] then
-						Core.SendToUser(user,"<"..SetMan.GetString(21).."> "..t[4])
-						Core.Disconnect(user)
-						return true
-					end
-				elseif (t[2] == t[3] and ve == t[2]) then
-					Core.SendToUser(user,"<"..SetMan.GetString(21).."> "..t[4])
-					Core.Disconnect(user)
-					return true
-				elseif ve > t[2] and ve < t[3] then
-					Core.SendToUser(user,"<"..SetMan.GetString(21).."> "..t[4])
-					Core.Disconnect(user)
-					return true
+				elseif ve >= t[2] and ve <= t[3] then
+					disconnect = true
+					message = t[4]
+					break
 				end
 			else
-				Core.SendToOpChat("Unable to check "..user.sNick.."'s client. Tag: "..Core.GetUserValue(user,3))
+				Core.SendToOpChat("Unable to check " .. user.sNick .. "'s client. Tag: " .. Core.GetUserValue(user,3))
 				return true
 			end
 		end
+	end
+	if disconnect then
+		Core.SendToUser(user, "<" .. SetMan.GetString(21) .. "> " .. message)
+		Core.Disconnect(user)
+		return true
 	end
 	return false
 end
