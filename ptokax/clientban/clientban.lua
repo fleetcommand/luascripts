@@ -15,7 +15,7 @@ local Save = function()
 	if f then
 		f:write("tCB = {\n")
 		for i, v in ipairs(tCB) do
-			f:write('{"' .. escapeString(v[1]) .. '",' .. v[2] .. ',' .. v[3] .. ',"' .. escapeString(v[4]) .. '"},\n')
+			f:write('{"' .. escapeString(v[1]) .. '",' .. NumUtil:toString(v[2]) .. ',' .. NumUtil:toString(v[3]) .. ',"' .. escapeString(v[4]) .. '"},\n')
 		end
 		f:write("}")
 		f:close()

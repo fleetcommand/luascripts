@@ -30,3 +30,7 @@ NumUtil.toNumber = function(this, text)
 
 	return temp
 end
+
+NumUtil.toString = function(this, num)
+	return string.gsub(tostring(num), ",", ".")
+end
