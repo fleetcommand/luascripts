@@ -1,4 +1,6 @@
-dofile(Core.GetPtokaXPath().."scripts/help.lua.inc")
+dofile(Core.GetPtokaXPath() .. "scripts/help.lua.inc")
+dofile(Core.GetPtokaXPath() .. "scripts/numutil.inc")
+
 local class = "0"
 tCB = {}
 
@@ -27,11 +29,11 @@ local function clientban(params)
 		"!cb up <index> - Moves up the given index.\r\n"..
 		"!cb down <index> - Moves down the given index."
 	elseif (params[1] == "add") then
-		if (not tonumber(params[3]) or not tonumber(params[4])) then
+		if (not NumUtil:toNumber(params[3]) or not NumUtil:toNumber(params[4])) then
 			return "Versions must be numeric. Remove every character from it, decimal numbers are accepted"
 		end
 		if params[5] then
-			table.insert(tCB,{params[2],tonumber(params[3]),tonumber(params[4]),table.concat(params," ",5)})
+			table.insert(tCB,{params[2],NumUtil:toNumber(params[3]),NumUtil:toNumber(params[4]),table.concat(params," ",5)})
 			Save();
 			return params[2].." with version "..params[3].." - "..params[4].." has been banned with message: "..table.concat(params," ",5);
 		else
@@ -68,7 +70,7 @@ function ChatArrival(user, fulltext)
 end
 
 function UserConnected(user)
-	local cl,ve = Core.GetUserValue(user,6),tonumber(Core.GetUserValue(user,7))
+	local cl, ve = Core.GetUserValue(user, 6), NumUtil:toNumber(Core.GetUserValue(user, 7))
 	if cl == "DC++" then cl = "++" end
 	if cl == "Valknut" then cl = "DCGUI" end
 	if cl == "NMDC2" then cl = "DC" end
