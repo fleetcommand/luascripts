@@ -1,3 +1,23 @@
+--[[
+	clientban.lua v1.1
+	02/12/2011
+	Authors:
+	  Thor: ejjeliorjarat@gmail.com
+	  FleetCommand: fleetcommand@elitemail.hu
+
+	Changes:
+	0.1.1 (FleetCommand)
+	  Fixing so that the script won't fail if no parameter specified
+	  <=, >= instead of <, >
+	  Saving strings with quotation marks in them should work now
+	  Added numutil.inc:
+	    Now it can check the tag even on localized systems
+	    Now saved data can be loaded again
+
+	v1.0 (Thor)
+	  Initial release
+]]
+
 dofile(Core.GetPtokaXPath() .. "scripts/help.lua.inc")
 dofile(Core.GetPtokaXPath() .. "scripts/numutil.inc")
 
@@ -34,7 +54,7 @@ local function clientban(params)
 		"!cb down <index> - Moves down the given index."
 	elseif (params[1] == "add") then
 		if (not NumUtil:toNumber(params[3]) or not NumUtil:toNumber(params[4])) then
-			return "Versions must be numeric. Remove every character from it, decimal numbers are accepted"
+			return "Versions must be numeric. Remove every character from it, decimal numbers are accepted."
 		end
 		if params[5] then
 			table.insert(tCB,{params[2],NumUtil:toNumber(params[3]),NumUtil:toNumber(params[4]),table.concat(params," ",5)})
