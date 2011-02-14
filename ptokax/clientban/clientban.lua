@@ -22,6 +22,13 @@ dofile(Core.GetPtokaXPath() .. "scripts/help.lua.inc")
 dofile(Core.GetPtokaXPath() .. "scripts/numutil.inc")
 
 local class = "0"
+local filteredClass = {
+	[-1] = true, -- Unregistered
+	[0] = false, -- Master
+	[1] = false, -- Op
+	[2] = true, -- Vip
+	[3] = true, -- Reg
+}
 tCB = {}
 
 if loadfile(Core.GetPtokaXPath() .. "scripts/cb.txt") then dofile(Core.GetPtokaXPath() .. "scripts/cb.txt") end
@@ -86,6 +93,9 @@ local function Clientban(params)
 end
 
 local function CheckVersion(user)
+	if not filteredClass[user.iProfile] then
+		return false
+	end
 	local disconnect = false
 	local message = ""
 	local cl, ve = Core.GetUserValue(user, 6), NumUtil:toNumber(Core.GetUserValue(user, 7))
@@ -147,6 +157,10 @@ function UserConnected(user)
 end
 
 function RegConnected(user)
+	return CheckVersion(user)
+end
+
+function OpConnected(user)
 	return CheckVersion(user)
 end
 
