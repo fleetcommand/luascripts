@@ -42,7 +42,7 @@ local Save = function()
 	end
 end
 
-local function clientban(params)
+local function Clientban(params)
 	if (not params[1]) then
 		return "Missing parameters. See !cb help";
 	elseif (params[1] == "help") then
@@ -85,20 +85,7 @@ local function clientban(params)
 	end
 end
 
-function ChatArrival(user, fulltext)
-	if tostring(user.iProfile):match("["..class.."]") and (fulltext:match("^%b<>%s*[%+!]clientban.+$") or fulltext:match("^%b<>%s*[%+!]cb.+$"))then
-		local t = {}
-		if fulltext:match("[%+!]%S+%s(.+)|$") then
-			fulltext:match("[%+!]%S+%s(.+)|$"):gsub("(%S+)",function(m) table.insert(t, m) end)
-		end
-		msg = clientban(t)
-		if msg then Core.SendToUser(user,"<"..SetMan.GetString(21).."> "..msg) end
-		return true
-	end
-	return false
-end
-
-function UserConnected(user)
+local function CheckVersion(user)
 	local disconnect = false
 	local message = ""
 	local cl, ve = Core.GetUserValue(user, 6), NumUtil:toNumber(Core.GetUserValue(user, 7))
@@ -140,6 +127,27 @@ function UserConnected(user)
 		return true
 	end
 	return false
+end
+
+function ChatArrival(user, fulltext)
+	if tostring(user.iProfile):match("["..class.."]") and (fulltext:match("^%b<>%s*[%+!]clientban.+$") or fulltext:match("^%b<>%s*[%+!]cb.+$"))then
+		local t = {}
+		if fulltext:match("[%+!]%S+%s(.+)|$") then
+			fulltext:match("[%+!]%S+%s(.+)|$"):gsub("(%S+)",function(m) table.insert(t, m) end)
+		end
+		msg = Clientban(t)
+		if msg then Core.SendToUser(user,"<" .. SetMan.GetString(21) .. "> " .. msg) end
+		return true
+	end
+	return false
+end
+
+function UserConnected(user)
+	return CheckVersion(user)
+end
+
+function RegConnected(user)
+	return CheckVersion(user)
 end
 
 function OnExit()
