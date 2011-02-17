@@ -6,6 +6,9 @@
 	  FleetCommand: fleetcommand@elitemail.hu
 
 	Changes:
+	0.1.2 (Thor)
+	  setlocale instead of numUtils
+	  Multiple version handling (ie. 1.2.2 is 1.22)
 	0.1.1 (FleetCommand)
 	  Fixing so that the script won't fail if no parameter specified
 	  <=, >= instead of <, >
@@ -19,7 +22,8 @@
 ]]
 
 dofile(Core.GetPtokaXPath() .. "scripts/help.lua.inc")
-dofile(Core.GetPtokaXPath() .. "scripts/numutil.inc")
+--dofile(Core.GetPtokaXPath() .. "scripts/numutil.inc")
+os.setlocale("C","numeric")
 
 local class = "0"
 local filteredClass = {
@@ -42,7 +46,7 @@ local Save = function()
 	if f then
 		f:write("tCB = {\n")
 		for i, v in ipairs(tCB) do
-			f:write('{"' .. escapeString(v[1]) .. '", ' .. NumUtil:toString(v[2]) .. ', ' .. NumUtil:toString(v[3]) .. ', "' .. escapeString(v[4]) .. '"},\n')
+			f:write('{"' .. escapeString(v[1]) .. '", ' .. tostring(v[2]) .. ', ' .. tostring(v[3]) .. ', "' .. escapeString(v[4]) .. '"},\n')
 		end
 		f:write("}")
 		f:close()
@@ -58,11 +62,11 @@ local function Clientban(params)
 		"!cb rm <index> - Removes the client with the given index from the list. See !cb list for the indexes.\r\n"..
 		"!cb list - Lists banned clientversions.\r\n"
 	elseif (params[1] == "add") then
-		if (not NumUtil:toNumber(params[3]) or not NumUtil:toNumber(params[4])) then
+		if (not tonumber(params[3]) or not tonumber(params[4])) then
 			return "Versions must be numeric. Remove every character from it, decimal numbers are accepted."
 		end
 		if params[5] then
-			table.insert(tCB,{params[2],NumUtil:toNumber(params[3]),NumUtil:toNumber(params[4]),table.concat(params," ",5)})
+			table.insert(tCB,{params[2],tonumber(params[3]),tonumber(params[4]),table.concat(params," ",5)})
 			Save();
 			return params[2].." with version "..params[3].." - "..params[4].." has been banned with message: "..table.concat(params," ",5);
 		else
@@ -82,7 +86,7 @@ local function Clientban(params)
 		local list = "Currently banned clients:\r\nIndex\tclient\tfrom_version\tto_version\tmessage\r\n";
 		--// To avoid end-user confusion, we use dot as a decimal separator  in !bc list
 		for i, t in ipairs(tCB) do
-			list = list .. i .. "\t" .. t[1] .. "\t" .. NumUtil:toString(t[2]) .. "\t\t" .. NumUtil:toString(t[3]) .. "\t\t" .. t[4] .. "\r\n"
+			list = list .. i .. "\t" .. t[1] .. "\t" .. tostring(t[2]) .. "\t\t" .. tostring(t[3]) .. "\t\t" .. t[4] .. "\r\n"
 		end
 		return list;
 	else
@@ -96,7 +100,12 @@ local function CheckVersion(user)
 	end
 	local disconnect = false
 	local message = ""
-	local cl, ve = Core.GetUserValue(user, 6), NumUtil:toNumber(Core.GetUserValue(user, 7))
+	local cl, ve = Core.GetUserValue(user, 6), tonumber(Core.GetUserValue(user, 7))
+	-- Remove extra dots
+	local i = 0
+	local f = function(m) i=i+1 return i==1 and "." or "" end
+	ve = ve:gsub("%.",f):gsub("[^%d%.]+","")
+	-- Rename what Px has renamed
 	if cl == "DC++" then cl = "++" end
 	if cl == "Valknut" then cl = "DCGUI" end
 	if cl == "NMDC2" then cl = "DC" end
