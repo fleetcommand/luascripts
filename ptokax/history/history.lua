@@ -6,7 +6,7 @@ dofile(Core.GetPtokaXPath().."scripts/help.lua.inc")
 
 function ChatArrival(user, data)
 	if not data:find("^%b<>%s[%+!].+$") and not data:find("is kicking %S+ because:") then
-		if #tHistory > historyMax then table.remove(tHistory, 1) end
+		if #tHistory >= historyMax then table.remove(tHistory, 1) end
 		table.insert(tHistory, os.date("[%H:%M:%S] ") .. data:sub(1, -2))
 	end
 	if data:find("^%b<>%s[%+!]history.*$") or data:find("^%b<>%s[%+!]chatlog.*$") then
