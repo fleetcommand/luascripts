@@ -1,0 +1,148 @@
+--[[
+
+	user fields:
+		joindate
+		startcredit
+	
+	---------------------------------------------------------------------------
+	
+	bridgeconf.users = {
+		"elite.4242.hu:4242" = {
+			type = "nmdc", // "nmdc", "adc"
+			users = {
+				[HUN]Bela = { --// nick or cid
+					nick = "[HUN]Bela",
+					added = 0, --// unix idõ
+					lastplayed = 0, --// Unix idõ. azt tárolja, amikor az utolsó üres session-hozzárendelést kapta
+					lastseen = 0, --// unix idõ
+					ud = {
+						credit = "2023",
+						bah = "buhamuha",
+					},
+					stat = {
+							totaltimeplayed = 0, // sec
+							totalnumberofsessions = 0, 
+							won = 0, 
+							lost = 0,
+							drawn = 0, 
+					}
+					},
+				},
+			},
+		},
+		
+	bridgeconf.appservers = {
+		"nick or cid" = {
+				state = "offline" -- "online", "offline", "idle"
+				nick = "lastnick",
+		}
+	}
+	
+	---------------------------------------------------------------------------
+	
+	bridge._sessions = {
+		["sid01"] = {
+			_info = {
+				asid = "AppServerId",
+				appname = "appname",
+				date = os.time(),
+				sname = "sname"
+			}
+			_users = {
+				"uid01" = usertable1, ....
+			}
+			_spect = {
+				"o14" = true,
+				"m1" = true,
+			}
+			
+		}
+	}
+	
+	bridge._users = {
+		"uid01" = {
+			_info = {
+				sname = "",
+				nick = "",
+				url = "",
+				cid = "", false
+				sid = "", false
+				uid = "uid01"
+			}
+			_ud = {
+				"credit" = "200",
+				"buh" = "later",
+			}
+			_fields = {
+			}
+			_dcuser = dcuser:...
+			_spect = {
+				"bj01" = true,
+				"hm11" = true,
+			}
+			
+		}
+	}
+
+	-- this table resolves the uid by hub and nick/sid quickly
+	bridge._uid_resolver = {
+		"elite.4242.hu:1416" = {
+			"[OP]FleetCommand" = "uid",
+			...
+		},
+		"adc://elite.4242.hu:2424" = {
+		  "AAAA" = "uid",
+		}
+	}
+
+	-- true means the uid is not used (free)
+	bridge._uid_storage = {
+		"c" = {
+			[1] = true,
+			[2] = true,
+			...
+		},
+		"m" = {
+			[1] = true,
+			[2] = false,
+			...
+		}
+		"o" = {
+			...
+		}
+	}
+	
+	-------------------------------------------------------------------------
+
+	--// general statistic:
+
+	[] = {
+		users = {
+			1 = {
+				nick = "bah",
+				cid = "", --// only on adc hubs
+				credit = 0,
+				url = "",
+			}
+		}
+		-- general stat comes here.. like:
+		-- totalplayedgames = ..
+		-- etc
+	}
+
+	-- // user stat
+	[] = {
+		rank = 1, 
+		credit = ,
+		registered = ,
+		lastplayed = ,
+		lastnick = "",
+
+		applications = {
+			total =
+			won = 
+			drawn =
+			lost = 
+			time = 
+		}
+]]

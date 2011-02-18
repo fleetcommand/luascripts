@@ -1,0 +1,151 @@
+
+Userdata table:
+
+/*****************************************************************************
+	hub.oxygene.userlist = {}
+	[nick] = {
+		nick = "",
+		description = "",
+		tag = {
+			text = ""
+			client_type = ""
+			client_ver = 0
+			conn_mode = ""
+			hub1 = 0
+			hub2 = 0
+			hub3 = 0
+			slots = 0
+			auto_open = 0
+			ul_limit = 0
+		}
+		down_bw = 0,
+		up_bw = 0,
+		connection = ""
+		email = ""
+		sharesize = 0
+		isvalid_slots = true
+		kickmsg_slots = ""
+		isop = false
+		chatmsg = ""
+		diffrules = 0
+		logintime = os.time()
+	}
+ ******************************************************************************/
+
+Trigger conditions table::
+
+/*****************************************************************************
+	Checkslotsettings.triggers = {}
+	[1] = {
+		state = ""
+		name = ""
+		type = ""
+		interval = 0
+		conditions = {
+			[1] = {
+				type = ""
+				condition = ""
+				what = ""
+			}
+		}
+		actions = {
+			[1] = {
+				action = ""
+				param = ""
+			}
+		}
+		lastactivation = 0
+		counter = 0
+		counterreset = os.time()
+	}
+ ******************************************************************************/
+ 
+ ** interval: the time (in seconds) 
+
+Hub statistics table:
+
+/*****************************************************************************
+	local hubstat = {}
+	[1] = {
+		usercount = 0
+		badslots = 0
+		protectedslots = 0
+		points = 0
+		client_type = {
+			[1] = {
+				text = ""
+				count = 0
+				points = 0
+			}
+		}
+		nvclient_type = {
+			[1] = {
+				text = ""
+				count = 0
+				points = 0
+			}
+		}
+		conn_mode = {
+			[1] = {
+				text = ""
+				count = 0
+				points = 0
+			}
+		}
+	}
+ ******************************************************************************/
+
+Kickprofiles table:
+
+type: c: chat, r: raw
+
+/*****************************************************************************
+	local kickprofiles = { }
+	[1] = {
+		name = ""
+		command = ""
+		type = ""
+	}
+ ******************************************************************************/
+
+hub.oxygene.state table:
+
+/*****************************************************************************
+	hub.oxygene.state = {
+		started = os.date("%Y. %m. %d - %H:%M:%S")
+		connected = os.time()
+		active = false
+	}
+ ******************************************************************************/
+
+Checkslotsettings.bwrules table:
+
+/*****************************************************************************
+
+	Checkslotsettings.bwrules = {}
+	[1] = {
+		bandwidth = 56
+		minslot = 1
+		maxslot = 1
+		slotrec = 1
+		maxhub = 1
+		maxhub_kick = 1
+	}
+
+ ******************************************************************************/
+ 
+ Checkslotsettings.userexceptions table:
+ 
+ /*****************************************************************************
+ 
+    Checkslotsettings.userexceptions = {}
+    [1] = {
+		nick = ""
+		mode = 0 --// 0: regex, 1: partial, 2: exact
+		againstkick = 0
+		ignoreslotrules = 0
+		ignorealltriggers = 0
+		ignoretriginterval = 0
+    }
+ 
+  ******************************************************************************/

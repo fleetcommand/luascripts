@@ -1,0 +1,23 @@
+          ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          Help                                                                                                                                                 Checkslot %[chversion]
+          ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          -? [command]                                                                                                                                                     Help
+          -help [command]                                                                                                                                                Help
+          -chaddhub [host]                                   Felveszi az aktuális vagy a megadott hubot a használható hubok listájához
+          -chrmhub [host]                                    Eltávolítja az aktuális vagy a megadott hubot a használható hubok listájáról               
+          -chlisthubs                                                                                                                Listázza a használható hubokat
+          -chrules <list/add/rm/ulimit/clearall/reset> [params..]                Sávszélesség-szabályok megváltoztatása/listázása
+          -chtrigs <list/addtrig/rmtrig/addc/rmc/adda/rma/enable/settype/setinterval/reset> [params]     Triggerek beállítása
+          -chprotect <list/add/rm> [params]                                                              Kivételek/Védett felhasználók beállítása
+          -chgetinfo <nick>                                                                               Lekéri a megadott felhasználó eltárolt adatait
+          -chnotice <nick> <pm/profil_name/default>               Figyelmezteti/Kickeli a felhasználót a profillal, ha szabály sért
+          -chcheckhub <max_num> [profile]                        Kirúgja a megadott számú felhasználót a megadott profil alapján
+          -chstat [full]                                                                                                                 Lekéri a kliensek statisztikáját
+          -chprofiles <list/add/rm/setdefault>                                                             Kick profilok megváltoztatása/listázása
+          -chgetconfig                                                                                                                  Megmutatja a beállításokat
+          -chset <config_variable> <value>                                                                      Beállítja a config megadott értékeit
+          -chreload                                             Újragenerálja a felhasználók hibaüzeneteit (új nyelvi fájl/slotszabály esetén)
+          -chsay <text>                                                                                                     A bot nevében main chat üzit küld
+          ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           Részleteket a -help [parancs] paranccsal tudsz kérni. pl: -help chrules
+          ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,44 @@
+	session fields:
+	----------------
+	
+	maxplayers (1, 2)
+	status ("pending" or "inprogress")
+	current (The uid of the current player. If computer, then "computer")
+	cards (The shuffled cards)
+	ccards (The cards of the computer)
+	cbooks (The books of the computer)
+	mystrat (Table for the computer strategy)
+	
+	user fields:
+	------------
+	
+	cards (The cards in the hand)
+	books (The books)
+	
+	--------------------------
+	
+	cards = {
+		[1] = {
+			name = "name of card", --// a single letter.. "A", "J", "2", etc.
+			value = 0 --// used only for ordering, not counting
+		}
+	}
+	
+	books = {
+		[1] = {
+			name = "3",
+			value = 3
+		},
+	}
+	
+	mystrat = {
+		"A" = {
+			risk = 1, --// risk is 1 by default, and it groves when we give a card to the opponent
+					  --// it is set to 0 when we are sure the opponent has no cards of it
+			draws = 0, --// number of opponent draws since we set the risk
+		}
+		"2" = {
+			risk = 0,
+			draws = 0,
+		}
+	}

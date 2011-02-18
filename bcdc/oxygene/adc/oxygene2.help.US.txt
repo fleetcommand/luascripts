@@ -1,0 +1,23 @@
+          ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          Help                                                                                                                                                 Checkslot %[chversion]
+          ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          -? [command]                                                                                                                                                     Help
+          -help [command]                                                                                                                                                Help
+          -chaddhub [host]                                                               Adds the current or specified hub to the allowed hubs' list
+          -chrmhub [host]                                                       Removes the current or specified hub from the allowed hubs' list
+          -chlisthubs                                                                                                                               Lists the allowed hubs 
+          -chrules <list/add/rm/ulimit/minbw/clearall/reset> [params..]                                    Changes/Lists the bandwidth-rules
+          -chtrigs <list/addtrig/rmtrig/addc/rmc/adda/rma/enable/settype/setinterval/reset> [params]                Set up triggers
+          -chprotect <list/add/rm> [params]                                                                        Set up exceptions/protected users
+          -chgetinfo <nick>                                                                                             Shows the stored info about the user
+          -chnotice <nick> <pm/profil_name/default>                              Notices/kicks the user if his/her settings are wrong
+          -chcheckhub <max_num> [profile]                                      Kicks a given number of users according to the [profile]
+          -chstat [full]                                                                                                                                Shows client statistics
+          -chprofiles <list/add/rm/setdefault>                                                                                 Changes(Lists kick profiles
+          -chgetconfig                                                                                                                             Shows current config
+          -chset <config_variable> <value>                                                                           Changes the value of the config
+          -chreload                                                     Updates the users' error messages (when changing slotrules/language)
+          -chsay <text>                                                                                                 Sends a main chat message as the bot
+          ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+           More details with the -help [command] command. For example: -help chrules
+          ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

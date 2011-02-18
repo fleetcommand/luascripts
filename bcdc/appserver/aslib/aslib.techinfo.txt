@@ -1,0 +1,66 @@
+
+
+	_assessions = {
+		["session01"] = {
+			_users = {
+				[1] = {
+					_info = {
+						nick = ""
+						lastactivity = os.time()
+						uid = "c1200"
+						sname = ""
+					}
+					_ud = {
+					["var1"] = {
+						["value"] = "bah"
+						["incomplete"] = false
+					}
+					_fields = {
+					}
+				}
+			}
+			_info = {
+				sname = "sessionname"
+				appname = "applicationname"
+				date = 0
+				status = "online" --// "online" or "offline"
+			}
+			_fields = {
+			}
+			_user_resolver = {
+				["uid1"] = index (num)
+			}
+			--// method calls
+		}
+	}
+
+	_listeners = {
+		[ltype] = {
+			[appname] = {
+				[id1] = func1()
+				[id2] = func2()
+			}
+		}
+	}
+	
+	_session_resolver = {
+		["uid1"] = "sname1"
+	}
+	
+	listeners:
+	
+	onquit
+	f(uid, sname, nick)
+	
+	onmessage
+	f(uid, nick, message)
+	
+	onsessionmessage
+	f(user, session, nick, message)
+	
+	onuserdata
+	f(user, session, variable, value)
+	
+	ontimer
+	f()
+	

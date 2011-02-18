@@ -1,0 +1,40 @@
+triggert blokkoló események..
+
+
+ha a listener:     ... és van benne [.] feltétel
+
+INF
+
+chat
+
+
+
+MSG
+
+
+
+
+Timer
+
+nick, description, client_type, conn_mode, connection, email
+chat,
+client_ver, sharsize
+user
+
+
+valamint blokkolni kell, ha a listener: .. és NINCS benne [.] feltétel
+
+
+
+Timer
+
+date, time, fulldate, hour, min, sec
+
+INF
+
+nick, description, client_type, conn_mode, connection, email
+
+
+MSG
+
+chat

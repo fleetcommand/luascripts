@@ -1,0 +1,241 @@
+###########################################################################
+#                                                                         #
+# This file is suitable for using in Hangman, which is a game for BCDC++  #
+# based on the AppServer library. For more information see the AS docs.   #
+#                                                                         #
+# Last modified: Apr 10, 2008 by Szabolcs Molnár                          #
+#                                                                         #
+###########################################################################
+közmondás@Vak tyúk is talál szeget
+közmondás@A hazug embert hamarabb utolérik, mint a sánta kutyát
+közmondás@Ebül szerzett jószág ebül vész
+közmondás@Bagoly mondja verébnek, hogy nagyfejű
+közmondás@Amilyen a mester, olyan a munkája
+közmondás@Az erős fonalból tartós az ing
+közmondás@Gyakorlat teszi a mestert
+közmondás@Jó tanítvány se mindjárt mester
+közmondás@Legjobb mester az élet
+közmondás@Könnyű a mesterség annak, aki tudja
+közmondás@Mesterségnek szerencse a mestersége
+közmondás@Ne ítélj arról, amihez nem értesz
+közmondás@Nem mind katona, ki kardot hord
+közmondás@A könyvek néma mesterek
+közmondás@A tudomány kincs, melynek párja nincs
+közmondás@Aki nem tanul, nem halad
+közmondás@Aki tanít, tanul
+közmondás@Amint öntik a harangot, úgy szól
+közmondás@Holtig tanul az ember
+közmondás@Kicsi lángnak nem nagy a világa
+közmondás@Legjobb iskola a tapasztalás
+közmondás@Nagy gyalázat embernek a tudatlanság
+közmondás@Ne csak tudd a jót, hanem tedd is
+közmondás@Amilyen az adjonisten, olyan a fogadjisten
+közmondás@Ki mint veti ágyát, úgy alussza álmát
+közmondás@Ajándék lónak ne nézd a fogát
+közmondás@Alkalom szüli a tolvajt
+közmondás@Nem esik messze az alma a fájától
+közmondás@Nézd meg az anyját, vedd el a lányát
+közmondás@Ár ellen nehéz úszni
+közmondás@Nem mind arany, ami fénylik
+közmondás@Ki korán kel, aranyat lel
+közmondás@Bátraké a szerencse
+közmondás@Aki bírja, marja
+közmondás@Bolond lyukból bolond szél fúj
+közmondás@Egy bolond százat csinál
+közmondás@Jó bornak nem kell cégér
+közmondás@Bámul, mint borjú az új kapura
+közmondás@Kicsi a bors, de erős
+közmondás@Mindenki a maga bőrét viszi a vásárra
+közmondás@Egyszer volt Budán kutyavásár
+közmondás@A cél szentesíti az eszközt
+közmondás@Minden cigány a maga lovát dicséri
+közmondás@Minden csoda három napig tart
+közmondás@Éhes disznó makkal álmodik
+közmondás@Dobbal nem lehet verebet fogni
+közmondás@Aki nem dolgozik, ne is egyék
+közmondás@Két dudás egy csárdában nem fér meg
+közmondás@Ebcsont beforr
+közmondás@Ember embernek farkasa
+közmondás@Ember tervez, Isten végez
+közmondás@Holtig remél az ember
+közmondás@Sok jó ember kis helyen is elfér
+közmondás@Ahogy esik, úgy puffan
+közmondás@Májusi eső aranyat ér
+közmondás@Többet ésszel, mint erővel
+közmondás@Eszi, nem eszi, nem kap mást
+közmondás@Azt se tudja, eszik-e vagy isszák
+közmondás@Sok az eszkimó, kevés a fóka
+közmondás@Evés közben jön meg az étvágy
+közmondás@Nagy fába vágta a fejszéjét
+közmondás@Egy fecske nem csinál nyarat
+közmondás@Jobb félni, mint megijedni
+közmondás@Jobb a sűrű fillér, mint a ritka forint
+közmondás@Szégyen a futás, de hasznos
+közmondás@Egyik fülén be, a másikon ki
+közmondás@Nagyobb a füstje, mint a lángja
+közmondás@Gazda szeme hízlalja a jószágot
+közmondás@Gyáva népnek nincs hazája
+közmondás@Néma gyereknek az anyja sem érti a szavát
+közmondás@Tiltott gyümölcs édesebb
+közmondás@Hosszú haj, rövid ész
+közmondás@A nagy hal megeszi a kis halat
+közmondás@Fejétől bűzlik a hal
+közmondás@Halál ellen nincs orvosság
+közmondás@A hallgatás beleegyezés
+közmondás@A harag rossz tanácsadó
+közmondás@Nem zörög a haraszt, ha a szél nem fújja
+közmondás@Három a magyar igazság
+közmondás@Ahány ház, annyi szokás
+közmondás@Mindenki a maga háza előtt söpörjön
+közmondás@Aki egyszer hazudni mer, többet hitelt nem érdemel
+közmondás@A hazug embert hamarabb utolérik, mint a sánta kutyát
+közmondás@Holló a hollónak nem vájja ki a szemét
+közmondás@Ki tudja, mit hoz a holnap
+közmondás@A holtakról vagy jót, vagy semmit
+közmondás@Egyszer hopp, másszor kopp
+közmondás@Üres hordó jobban kong
+közmondás@Olcsó húsnak híg a leve
+közmondás@Borban az igazság
+közmondás@Az idő pénz
+közmondás@Az igazságot nem lehet véka alá rejteni
+közmondás@Aki sokat ígér, keveset ad
+közmondás@Az ígéret szép szó, ha megtartják, úgy jó
+közmondás@Akinek nem inge, ne vegye magára
+közmondás@Isten nem ver bottal
+közmondás@Segíts magadon, Isten is megsegít
+közmondás@Ízlések és pofonok különbözőek
+közmondás@A jó mindig elnyeri méltó büntetését
+közmondás@Minden jó, ha a vége jó
+közmondás@Mindenütt jó, de legjobb otthon
+közmondás@Minden rosszban van valami jó
+közmondás@Jóból is megárt a sok
+közmondás@Jótett helyébe jót várj
+közmondás@Jöjjön, aminek jönnie kell
+közmondás@Ha jöttök, lesztek, ha hoztok, esztek
+közmondás@Minden kakas úr a maga szemétdombján
+közmondás@Ha rövid a karod, toldd meg egy lépéssel
+közmondás@Megy, mint a karikacsapás
+közmondás@Kinek egyszer megégette a száját a kása, az aludtejet is megfújja
+közmondás@A vén kecske is megnyalja a sót
+közmondás@Aki keres, talál
+közmondás@Ami késik, nem múlik
+közmondás@A kivétel erősíti a szabályt
+közmondás@Aki korpa közé keveredik, megeszik a disznók
+közmondás@Addig jár a korsó a kútra, amíg el nem törik
+közmondás@Ha megbodnak kővel, dobd vissza kenyérrel
+közmondás@Amelyik kutya ugat, az nem harap
+közmondás@Kutyából nem lesz szalonna
+közmondás@Kutyaharapást a szőrivel gyógyítják
+közmondás@Lassan járj, tovább érsz
+közmondás@A látszat csal
+közmondás@Nem az a legény, aki üti, hanem aki állja
+személy@Ady Endre
+személy@Apáczai Csere János
+személy@Arany János
+személy@Arany László
+személy@Babits Mihály
+személy@Bajza József
+személy@Balassi Bálint
+személy@Batsányi János
+személy@Benedek Elek
+személy@Berzsenyi Dániel
+személy@Bethlen Miklós
+személy@Bornemissza Péter
+személy@Böszörményi Gyula
+személy@Csokonai Vitéz Mihály
+személy@Csoóri Sándor
+személy@Csukás István
+személy@Vavyan Fable
+személy@Faludi Gyorgy
+személy@Fáy András
+személy@Füst Milán
+személy@Galgóczi Erzsébet
+személy@Gárdonyi Géza
+személy@Ignotus
+személy@Illyés Gyula
+személy@Janus Pannonius
+személy@Jókai Anna
+személy@Jókai Mór
+személy@József Attila
+személy@Kaffka Margit
+személy@Karinthy Frigyes
+személy@Károli Gáspár
+személy@Katona József
+személy@Kazinczy Ferenc
+személy@Kisfaludy Sándor
+személy@Kosztolányi Dezső
+személy@Kölcsey Ferenc
+személy@Krúdy Gyula
+személy@Lázár Ervin
+személy@Lőrincz L. László
+személy@Madách Imre
+személy@Méhes György
+személy@Mikes Kelemen
+személy@Mikszáth Kálmán
+személy@Moldova György
+személy@Molnár Ferenc
+személy@Móra Ferenc
+személy@Móricz Zsigmond
+személy@Nagy Lajos
+személy@Nagy László
+személy@Nemes Nagy Ágnes
+személy@Örkény István
+személy@Pázmány Péter
+személy@Petőfi Sándor
+személy@Radnóti Miklós
+személy@Rejtő Jenő
+személy@Reviczky Gyula
+személy@Romhányi József
+személy@Rónay György
+személy@Szabó Magda
+személy@Széchenyi István
+személy@Szerb Antal
+személy@Tinódi Lantos Sebestyén
+személy@Tóth Árpád
+személy@Vörösmarty Mihály
+személy@Wass Albert
+személy@Weöres Sándor
+személy@Zelk Zoltán
+személy@Isaac Asimov
+személy@Honoré de Balzac
+személy@William Blake
+személy@Giovanni Boccaccio
+személy@Bertolt Brecht
+személy@Agatha Christie
+személy@Marcus Tullius Cicero
+személy@Anton Pavlovics Csehov
+személy@Dante Alighieri
+személy@Charles Dickens
+személy@Emily Dickinson
+személy@Fjodor Mihajlovics Dosztojevszkij
+személy@Alexandre Dumas
+személy@Johann Wolfgang Goethe
+személy@Nyikolaj Vasziljevics Gogol
+személy@Hérodotosz
+személy@E. T. A. Hoffmann
+személy@Homérosz
+személy@Quintus Horatius Flaccus
+személy@Victor Hugo
+személy@Henrik Ibsen
+személy@Franz Kafka
+személy@Jean de La Fontaine
+személy@Thomas Mass
+személy@Guy de Maupassant
+személy@Platón
+személy@Plutarkhosz
+személy@Edgar Allan Poe
+személy@Alekszandr Szergejevics Puskin
+személy@Jean-Jaques Rousseau
+személy@William Shakespeare
+személy@George Bernard Shaw
+személy@Rabindranath Tagore
+személy@Lev Nyikolajevics Tolsztoj
+személy@Mark Twain
+személy@Vergilius
+személy@Jules Verne
+személy@Francois Villon
+földrajzi név@Keleti Öntöző Főcsatorna
+földrajzi név@Villányi-hegység
+földrajzi név@Fekete-Körös
+földrajzi név@Szentendrei-sziget
+földrajzi név@Óbudai-sziget

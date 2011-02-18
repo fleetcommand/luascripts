@@ -1,0 +1,46 @@
+	session fields:
+	----------------
+	
+	players (number of required players)
+	minimumbet (minimum bet for the session)
+	cards (shuffled cards - table)
+	status (status of the current game: "pending" or "inprogress")
+	dealer (defines if we have a dealer: true or false)
+	dealerinf (table)
+	round (the number of the current round)
+	
+	user fields:
+	------------
+	
+	bet (current bet of the player)
+	originalbet (initialbet of the player)
+	previousbet (the bet of the player in the previous round)
+	originalcredit (the credits of the player before the first round)
+	sum
+	status (playing, stopped, surrender or lost)
+	cards (table of cards)
+	
+	--------------------------
+	
+	cards = {
+		[1] = {
+			name = "name of card",
+			value = 0,
+			value2 = 0, --// optional. nil, if no second value
+		}
+	}
+	
+	dealerinf = {
+		nick = "MZ/X",
+		sum = 0,
+		status = "", // "playing", "stopped", "lost"
+		cards = {
+			[1] = {
+				name = "pikk ász",
+				value = 11,
+				value2 = 1,
+				hc = false, // hole card
+			},
+			
+		}
+	}
