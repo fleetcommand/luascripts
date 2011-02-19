@@ -100,11 +100,12 @@ local function CheckVersion(user)
 	end
 	local disconnect = false
 	local message = ""
-	local cl, ve = Core.GetUserValue(user, 6), tonumber(Core.GetUserValue(user, 7))
+	local cl, ve = Core.GetUserValue(user, 6), Core.GetUserValue(user, 7)
 	-- Remove extra dots
 	local i = 0
-	local f = function(m) i=i+1 return i==1 and "." or "" end
-	ve = ve:gsub("%.",f):gsub("[^%d%.]+","")
+	local f = function(m) i = i + 1 return i == 1 and "." or "" end
+	ve = ve:gsub("%.", f):gsub("[^%d%.]+", "")
+	ve = tonumber(ve)
 	-- Rename what Px has renamed
 	if cl == "DC++" then cl = "++" end
 	if cl == "Valknut" then cl = "DCGUI" end
